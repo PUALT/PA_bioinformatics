@@ -1,0 +1,17 @@
+Dataset,Accession,Platform,Sample_Count,Invasive_Count,NonInvasive_Count,Median_Age,Female_Percent,Access_URL,Notes
+GSE36314,GSE36314,Affymetrix Human Genome U133 Plus 2.0 Array,89,41,48,47.2,58.40%,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE36314,Functioning adenomas only
+GSE51618,GSE51618,Affymetrix Human Genome U133 Plus 2.0 Array,102,38,64,45.8,53.90%,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE51618,Mixed functioning/non-functioning
+GSE74388,GSE74388,Agilent-014850 Whole Human Genome Microarray 4x44K G4112F,118,52,66,49.1,62.70%,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE74388,Includes recurrent cases
+GSE119063,GSE119063,Agilent-014850 Whole Human Genome Microarray 4x44K G4112F,103,46,57,50.3,55.30%,https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE119063,Long-term follow-up available
+TCGA-PA,NA,RNA-seq (Illumina HiSeq),100,46,54,48.7,58.00%,https://portal.gdc.cancer.gov/projects/TCGA-PA,TCGA Pituitary Adenoma project
+Total,NA,Integrated dataset,512,223,289,48,57.80%,NA,After batch correction with ComBat
+,,,,,,,,,
+Clinical_Variables,Distribution,Notes,,,,,,,
+Age (years),"Mean ¡À SD: 48.0 ¡À 12.3, Range: 18-76",Normally distributed (Shapiro-Wilk P=0.12),,,,,,,
+Gender,"Female: 296 (57.8%), Male: 216 (42.2%)",Chi-square test for subtype association: P=0.37,,,,,,,
+Tumor_Size (mm),"Mean ¡À SD: 26.8 ¡À 11.4, Range: 3-65",Significantly larger in invasive subtype (P<0.001),,,,,,,
+Knosp_Grade,"Grade 0-2: 289 (56.4%), Grade 3-4: 223 (43.6%)",Primary invasiveness classification,,,,,,,
+Hormone_Type,"NFA: 211 (41.2%), Prolactinoma: 167 (32.6%), Somatotropinoma: 79 (15.4%), Corticotropinoma: 40 (7.8%), Thyrotropinoma: 15 (3.0%)",Based on hormone secretion status,,,,,,,
+Ki67_Index (%),"Mean ¡À SD: 3.4 ¡À 2.8, Range: 0.1-18.5",Higher in invasive subtype (P<0.001),,,,,,,
+Follow_up (years),"Median: 5.2, IQR: 2.8-8.1, Range: 0.5-12.3",98 recurrence events (19.1% recurrence rate),,,,,,,
+Progression_Free_Survival,5-year PFS: 74.2% (95% CI: 70.3-78.1%),Kaplan-Meier estimate,,,,,,,

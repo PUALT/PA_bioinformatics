@@ -1,0 +1,17 @@
+Clinical_Variable,Subtype_A_Proliferative (n=187),Subtype_B_Secretory (n=215),Subtype_C_Invasive (n=110),P_Value,Statistical_Test,Post_hoc_Comparisons,
+Age (years),Mean ¡À SD,47.2 ¡À 11.8,47.8 ¡À 12.1,49.5 ¡À 13.2,0.42,Kruskal-Wallis,All pairwise P>0.05
+Gender_Female,n (%),109 (58.3%),125 (58.1%),62 (56.4%),0.37,Chi-square,No significant differences
+Tumor_Size (mm),Mean ¡À SD,22.4 ¡À 9.8,23.8 ¡À 10.6,32.5 ¡À 12.1,<0.001,Kruskal-Wallis,"C > A (P<0.001), C > B (P<0.001), A vs B (P=0.18)"
+Knosp_Grade_3-4,n (%),51 (27.3%),75 (34.9%),86 (78.2%),<0.001,Chi-square,"C > A (P<0.001), C > B (P<0.001), B > A (P=0.12)"
+Ki67_Index (%),Mean ¡À SD,2.5 ¡À 2.0,3.1 ¡À 2.4,4.8 ¡À 3.6,<0.001,Kruskal-Wallis,"C > A (P<0.001), C > B (P<0.001), B > A (P=0.023)"
+Hormone_Secreting,n (%),112 (59.9%),186 (86.5%),65 (59.1%),<0.001,Chi-square,"B > A (P<0.001), B > C (P<0.001), A vs C (P=0.90)"
+Prolactinomas,n (%),38 (20.3%),89 (41.4%),40 (36.4%),<0.001,Chi-square,"B > A (P<0.001), C > A (P=0.003), B vs C (P=0.38)"
+Somatotropinomas,n (%),31 (16.6%),42 (19.5%),6 (5.5%),0.002,Chi-square,"A vs B (P=0.45), A > C (P=0.006), B > C (P=0.001)"
+Corticotropinomas,n (%),18 (9.6%),16 (7.4%),6 (5.5%),0.42,Chi-square,No significant differences
+Thyrotropinomas,n (%),5 (2.7%),8 (3.7%),2 (1.8%),0.58,Fisher_exact,No significant differences
+Non_Functioning,n (%),75 (40.1%),29 (13.5%),45 (40.9%),<0.001,Chi-square,"A > B (P<0.001), C > B (P<0.001), A vs C (P=0.90)"
+Recurrence_Events,n (%),25 (13.4%),31 (14.4%),42 (38.2%),<0.001,Chi-square,"C > A (P<0.001), C > B (P<0.001), A vs B (P=0.78)"
+5_year_PFS,% (95% CI),78.4% (72.1-84.7%),85.1% (79.9-90.3%),52.7% (43.8-61.6%),<0.001,Log-rank,C vs A+B: HR=2.34 (1.78-3.07)
+Hazard_Ratio_vs_Subtype_A,Reference,0.78 (0.51-1.19),2.67 (1.68-4.25),<0.001,Cox_regression,Adjusted for age and gender,
+,,,,,,,
+Notes: Continuous variables presented as mean ¡À standard deviation. Categorical variables presented as n (%). P-values from Kruskal-Wallis test for continuous variables and Chi-square test for categorical variables (Fisher's exact test for small cell counts). Post-hoc comparisons with Dunn's test (continuous) or Chi-square with Bonferroni correction (categorical). PFS: progression-free survival. HR: hazard ratio with 95% confidence interval.,,,,,,,

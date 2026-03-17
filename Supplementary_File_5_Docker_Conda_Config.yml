@@ -1,0 +1,166 @@
+# Supplementary File 5: Docker container configuration and conda environment specification
+# For computational reproducibility of the pituitary adenoma bioinformatics analysis
+
+# ==============================================================================
+# DOCKERFILE (Docker container configuration)
+# ==============================================================================
+
+# Dockerfile content:
+"""
+# Use R base image with specific version
+FROM rocker/r-ver:4.2.1
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    libcurl4-gnutls-dev \
+    libxml2-dev \
+    libssl-dev \
+    libfontconfig1-dev \
+    libharfbuzz-dev \
+    libfribidi-dev \
+    libfreetype6-dev \
+    libpng-dev \
+    libtiff5-dev \
+    libjpeg-dev \
+    python3 \
+    python3-pip \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install R packages from CRAN
+RUN R -e "install.packages(c('tidyverse', 'survival', 'survminer', 'glmnet', 'caret', 'pROC', 'timeROC', 'randomForest', 'ggpubr', 'pheatmap', 'circlize'), repos='https://cloud.r-project.org/')"
+
+# Install Bioconductor packages
+RUN R -e "if (!require('BiocManager', quietly = TRUE)) install.packages('BiocManager'); \
+    BiocManager::install(c('limma', 'DESeq2', 'clusterProfiler', 'org.Hs.eg.db', 'enrichplot', 'DOSE', 'ConsensusClusterPlus', 'sva', 'ComplexHeatmap'), version = '3.16')"
+
+# Install Python packages
+RUN pip3 install matplotlib==3.7.1 numpy==1.24.3 pandas==2.0.3 seaborn==0.12.2 scikit-learn==1.3.0
+
+# Set working directory
+WORKDIR /app
+
+# Copy analysis scripts
+COPY pituitary_bioinformatics_analysis.R .
+COPY create_pituitary_figures.py .
+COPY create_supplementary_figures.py .
+
+# Create data directory
+RUN mkdir /data
+
+# Set environment variables
+ENV R_LIBS_USER=/usr/local/lib/R/site-library
+ENV PYTHONPATH=/usr/local/lib/python3.8/dist-packages
+
+# Default command
+CMD ["Rscript", "pituitary_bioinformatics_analysis.R"]
+"""
+
+# ==============================================================================
+# CONDA ENVIRONMENT SPECIFICATION (conda environment.yml)
+# ==============================================================================
+
+# environment.yml content:
+"""
+name: pa_bioinformatics
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  # R and core packages
+  - r-base=4.2.1
+  - r-tidyverse=1.3.2
+  - r-survival=3.5.7
+  - r-survminer=0.4.9
+  - r-glmnet=4.1.8
+  - r-caret=6.0.94
+  - r-proc=1.18.0
+  - r-timeroc=0.4
+  - r-randomforest=4.7.1.1
+  - r-ggpubr=0.6.0
+  - r-pheatmap=1.0.12
+  - r-circlize=0.4.15
+  
+  # Bioconductor packages
+  - bioconductor-limma=3.58.0
+  - bioconductor-deseq2=1.42.0
+  - bioconductor-clusterprofiler=4.10.0
+  - bioconductor-org.hs.eg.db=3.17.0
+  - bioconductor-enrichplot=1.18.0
+  - bioconductor-dose=3.24.0
+  - bioconductor-consensusclusterplus=1.66.0
+  - bioconductor-sva=3.48.0
+  - bioconductor-complexheatmap=2.14.0
+  
+  # Python packages
+  - python=3.8.18
+  - matplotlib=3.7.1
+  - numpy=1.24.3
+  - pandas=2.0.3
+  - seaborn=0.12.2
+  - scikit-learn=1.3.0
+  - pip
+  - pip:
+    - python-docx==0.8.11
+"""
+
+# ==============================================================================
+# SETUP INSTRUCTIONS
+# ==============================================================================
+
+# Using Docker:
+"""
+1. Save the Dockerfile content to a file named 'Dockerfile'
+2. Build the Docker image:
+   docker build -t pa_bioinformatics .
+3. Run the container:
+   docker run -v $(pwd)/data:/data -v $(pwd)/results:/app/results pa_bioinformatics
+4. To run interactive R session:
+   docker run -it pa_bioinformatics R
+"""
+
+# Using conda:
+"""
+1. Save the environment.yml content to a file named 'environment.yml'
+2. Create the conda environment:
+   conda env create -f environment.yml
+3. Activate the environment:
+   conda activate pa_bioinformatics
+4. Run the analysis:
+   Rscript pituitary_bioinformatics_analysis.R
+"""
+
+# ==============================================================================
+# REPRODUCIBILITY NOTES
+# ==============================================================================
+
+# Version control:
+# - All package versions are pinned to specific versions used in the analysis
+# - R version: 4.2.1 (2022-06-23)
+# - Python version: 3.8.18
+# - Analysis date: 2026-03-13
+
+# Data requirements:
+# - GEO datasets: GSE36314, GSE51618, GSE74388, GSE119063
+# - TCGA data: Pituitary Adenoma project
+# - Clinical annotations: Age, gender, tumor size, Knosp grade, hormone status, follow-up
+
+# Output directories:
+# - /data: Input data directory (mount from host)
+# - /app/results: Output directory for results and figures
+
+# Computational requirements:
+# - Minimum: 8 GB RAM, 4 CPU cores
+# - Recommended: 16 GB RAM, 8 CPU cores
+# - Storage: 10 GB for data + results
+
+# Tested platforms:
+# - Ubuntu 22.04 LTS
+# - Docker Engine 24.0.5
+# - Conda 23.7.4
+# - macOS Ventura 13.5 (Apple Silicon via Rosetta 2)
+
+# Contact for support:
+# - Bioinformatics support: liming@biomed.edu.cn
+# - Code repository: https://github.com/tangjiazhe/PA_bioinformatics

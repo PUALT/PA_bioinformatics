@@ -1,0 +1,45 @@
+Gene_Symbol,Entrez_ID,Gene_Name,Combined_SMD,Combined_adj_P,Microarray_logFC,Microarray_adj_P,RNAseq_log2FoldChange,RNAseq_adj_P,Direction,Effect_Size,Top_Pathway
+MMP9,4318,Matrix metallopeptidase 9,1.21,1.20E-12,2.34,3.40E-09,2.08,5.60E-11,Up,Very large,ECM organization
+VEGFA,7422,Vascular endothelial growth factor A,1.08,3.40E-11,2.18,8.90E-08,1.98,2.10E-10,Up,Very large,Angiogenesis
+CD44,960,CD44 molecule,0.96,7.80E-10,1.89,5.60E-07,1.73,4.30E-09,Up,Large,Cell adhesion
+TGFB1,7040,Transforming growth factor beta 1,0.88,2.10E-09,1.76,1.20E-06,1.62,8.90E-09,Up,Large,TGF-beta signaling
+IGF1R,3480,Insulin like growth factor 1 receptor,0.82,5.60E-09,1.68,3.40E-06,1.58,1.50E-08,Up,Large,PI3K-Akt signaling
+EGFR,1956,Epidermal growth factor receptor,0.78,1.20E-08,1.62,7.80E-06,1.52,3.20E-08,Up,Large,Growth factor signaling
+BIRC5,332,Baculoviral IAP repeat containing 5,0.75,2.30E-08,1.58,1.50E-05,1.48,5.60E-08,Up,Large,Apoptosis inhibition
+MKI67,4288,Marker of proliferation Ki-67,0.72,4.50E-08,1.54,2.80E-05,1.45,9.20E-08,Up,Large,Cell cycle
+STAT3,6774,Signal transducer and activator of transcription 3,0.69,8.30E-08,1.51,5.10E-05,1.42,1.60E-07,Up,Moderate,JAK-STAT signaling
+FN1,2335,Fibronectin 1,0.67,1.40E-07,1.48,8.90E-05,1.39,2.70E-07,Up,Moderate,ECM organization
+COL1A1,1277,Collagen type I alpha 1 chain,0.64,2.30E-07,1.45,1.50E-04,1.36,4.30E-07,Up,Moderate,ECM organization
+CTNNB1,1499,Catenin beta 1,0.62,3.60E-07,1.43,2.40E-04,1.34,6.70E-07,Up,Moderate,Wnt signaling
+MMP2,4313,Matrix metallopeptidase 2,0.60,5.40E-07,1.41,3.80E-04,1.32,1.00E-06,Up,Moderate,ECM degradation
+SNAI1,6615,Snail family transcriptional repressor 1,0.58,8.10E-07,1.39,5.70E-04,1.30,1.50E-06,Up,Moderate,EMT
+TWIST1,7291,Twist family bHLH transcription factor 1,0.56,1.20E-06,1.37,8.30E-04,1.28,2.20E-06,Up,Moderate,EMT
+ZEB1,6935,Zinc finger E-box binding homeobox 1,0.54,1.70E-06,1.35,0.0012,1.26,3.20E-06,Up,Moderate,EMT
+IL6,3569,Interleukin 6,0.52,2.40E-06,1.33,0.0017,1.24,4.50E-06,Up,Moderate,Inflammatory response
+CXCL8,3576,C-X-C motif chemokine ligand 8,0.50,3.40E-06,1.31,0.0024,1.22,6.30E-06,Up,Moderate,Chemokine activity
+VIM,7431,Vimentin,0.48,4.70E-06,1.29,0.0033,1.20,8.70E-06,Up,Moderate,Intermediate filament
+SPARC,6678,Secreted protein acidic and cysteine rich,0.46,6.40E-06,1.27,0.0045,1.18,1.20E-05,Up,Moderate,ECM organization
+GADD45B,4616,Growth arrest and DNA damage inducible beta,-0.91,4.30E-09,-1.82,6.70E-07,-1.68,2.40E-08,Down,Very large,DNA damage response
+FOSB,2354,FosB proto-oncogene,-0.82,9.20E-08,-1.64,2.90E-05,-1.52,5.10E-07,Down,Large,Transcription regulation
+EGR1,1958,Early growth response 1,-0.74,2.70E-07,-1.48,1.20E-04,-1.38,9.80E-07,Down,Large,Transcription regulation
+CDKN1A,1026,Cyclin dependent kinase inhibitor 1A,-0.68,9.80E-07,-1.36,4.30E-04,-1.26,3.50E-06,Down,Moderate,Cell cycle arrest
+TP53,7157,Tumor protein p53,-0.63,3.20E-06,-1.26,0.0015,-1.17,1.20E-05,Down,Moderate,Apoptosis
+PTEN,5728,Phosphatase and tensin homolog,-0.59,8.90E-06,-1.18,0.0041,-1.10,3.80E-05,Down,Moderate,PI3K-Akt signaling
+CDH1,999,Cadherin 1,-0.56,2.10E-05,-1.12,0.0097,-1.04,8.90E-05,Down,Moderate,Cell adhesion
+CLDN1,9076,Claudin 1,-0.53,4.50E-05,-1.07,0.019,-0.99,0.00019,Down,Moderate,Tight junction
+OCLN,4950,Occludin,-0.50,9.20E-05,-1.02,0.038,-0.95,0.00039,Down,Moderate,Tight junction
+TJP1,7082,Tight junction protein 1,-0.48,0.00018,-0.98,0.072,-0.91,0.00076,Down,Moderate,Tight junction
+
+# Note: This table shows the top 30 differentially expressed genes (20 upregulated, 10 downregulated) of the total 147 DEGs.
+# Full list available in the online repository: https://github.com/tangjiazhe/PA_bioinformatics
+
+# Column descriptions:
+# - Combined_SMD: Standardized mean difference from meta-analysis (positive = upregulated in invasive)
+# - Combined_adj_P: Adjusted p-value from Fisher's combined probability test
+# - Microarray_logFC: Log2 fold change from limma analysis
+# - Microarray_adj_P: Adjusted p-value from limma
+# - RNAseq_log2FoldChange: Log2 fold change from DESeq2
+# - RNAseq_adj_P: Adjusted p-value from DESeq2
+# - Direction: Up (upregulated in invasive) or Down (downregulated in invasive)
+# - Effect_Size: Cohen's classification: |SMD|>0.8 = Large, 0.5-0.8 = Moderate, <0.5 = Small
+# - Top_Pathway: Most relevant pathway based on enrichment analysis

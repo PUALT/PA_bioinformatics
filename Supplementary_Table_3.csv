@@ -1,0 +1,17 @@
+Hormone_Type,Subtype_A_Proliferative (n=187),Subtype_B_Secretory (n=215),Subtype_C_Invasive (n=110),Total (n=512),Row_Percent,Column_Percent
+Non_Functioning_Adenomas,75,29,45,149,29.1%,40.1%,13.5%,40.9%
+Prolactinomas,38,89,40,167,32.6%,20.3%,41.4%,36.4%
+Somatotropinomas,31,42,6,79,15.4%,16.6%,19.5%,5.5%
+Corticotropinomas,18,16,6,40,7.8%,9.6%,7.4%,5.5%
+Thyrotropinomas,5,8,2,15,2.9%,2.7%,3.7%,1.8%
+Total,187,215,110,512,100.0%,100.0%,100.0%,100.0%
+
+Statistical_Analysis,Value,P_Value
+Chi_square_Test,78.34,<0.001
+Cramer_V,0.277,<0.001
+Expected_vs_Observed,"Subtype B enriched for hormone-secreting tumors (86.5% vs. 58.7% for A+C, P<0.001)",NA
+Post_hoc_Analysis,"Subtype B vs A: P<0.001, Subtype B vs C: P<0.001, Subtype A vs C: P=0.90",NA
+Interpretation,"Subtype B (secretory) shows strong association with hormone-secreting tumors, particularly prolactinomas and somatotropinomas. Subtype C (invasive) has similar hormone distribution to Subtype A but with higher proportion of prolactinomas.",NA
+
+Column_Percent_Interpretation: For each hormone type, the three percentages represent the proportion within each molecular subtype. For example, among prolactinomas (n=167), 22.8% are Subtype A, 53.3% are Subtype B, and 24.0% are Subtype C.
+Row_Percent_Interpretation: For each molecular subtype, the percentages show the distribution of hormone types. For example, within Subtype B (n=215), 13.5% are NFAs, 41.4% are prolactinomas, 19.5% are somatotropinomas, etc.
